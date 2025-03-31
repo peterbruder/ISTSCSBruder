@@ -38,7 +38,7 @@ with st.expander(label="Overview of G-Mobil"):
     gronau_bhf_path = os.path.join(base_dir, "GronauBhf.shp")
     haltestellen_path = os.path.join(base_dir, "Haltestellen.shp")
     Buslinien_path = os.path.join(base_dir, "FrühereBuslinie.shp")
-    taxibuslinien_path = os.path.join(base_dir, "FrühereTaxiBuslinie.shp")
+    taxibuslinien_path = os.path.join(base_dir, "FrühereTaxibuslinie.shp")
 
     # Streamlit App
     st.header("Overview of Mein G-Mobil")
@@ -83,40 +83,40 @@ with st.expander(label="Overview of G-Mobil"):
                 popup=row.get("Haltestell", "Haltestelle")
             ).add_to(haltestellen_group)
         haltestellen_group.add_to(m)
-
-# Load and group Buslinien (Lines)
-buslinien_group = folium.FeatureGroup(name="Scheduled bus lines (2021)")
-buslinien = load_shapefile(Buslinien_path)
-
-if buslinien is not None:
-    colors =  ["purple"]  # Example colors
-
-    # Stelle sicher, dass die Geometrie gültig ist und transformiere ins richtige Koordinatensystem
-    buslinien = buslinien.to_crs(epsg=4326)
-    buslinien = buslinien[buslinien.geometry.notnull() & ~buslinien.geometry.is_empty]
-
-    for idx, row in buslinien.iterrows():
-        geom = row.geometry
-        color = colors[idx % len(colors)]
-
-        # MultiLineString auf einzelne Linien zerlegen
-        if isinstance(geom, MultiLineString):
-            lines = geom.geoms
-        elif isinstance(geom, LineString):
-            lines = [geom]
-        else:
-            continue  # Unsupported geometry type
-
-        for line in lines:
-            coords = [(lat, lon) for lon, lat in line.coords]  # folium erwartet (lat, lon)
-            folium.PolyLine(
-                coords,
-                color=color,
-                weight=2,
-                opacity=0.8
-            ).add_to(buslinien_group)
-
-    buslinien_group.add_to(m)
+    
+    # Load and group Buslinien (Lines)
+    buslinien_group = folium.FeatureGroup(name="Scheduled bus lines (2021)")
+    buslinien = load_shapefile(Buslinien_path)
+    
+    if buslinien is not None:
+        colors =  ["purple"]  # Example colors
+    
+        # Stelle sicher, dass die Geometrie gültig ist und transformiere ins richtige Koordinatensystem
+        buslinien = buslinien.to_crs(epsg=4326)
+        buslinien = buslinien[buslinien.geometry.notnull() & ~buslinien.geometry.is_empty]
+    
+        for idx, row in buslinien.iterrows():
+            geom = row.geometry
+            color = colors[idx % len(colors)]
+    
+            # MultiLineString auf einzelne Linien zerlegen
+            if isinstance(geom, MultiLineString):
+                lines = geom.geoms
+            elif isinstance(geom, LineString):
+                lines = [geom]
+            else:
+                continue  # Unsupported geometry type
+    
+            for line in lines:
+                coords = [(lat, lon) for lon, lat in line.coords]  # folium erwartet (lat, lon)
+                folium.PolyLine(
+                    coords,
+                    color=color,
+                    weight=2,
+                    opacity=0.8
+                ).add_to(buslinien_group)
+    
+        buslinien_group.add_to(m)
 
     # Load and group Taxibuslinien (Lines)
     taxibuslinien_group = folium.FeatureGroup(name="Taxi-buslines (2021)")
