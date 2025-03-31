@@ -481,7 +481,7 @@ with st.expander(label="Possible Data Biases"):
     st.header("Age Disparities: Ridepooling Users vs. Inhabitants")
 
     # Bildpfad
-    image_path = r"Age and Gender.png"
+    image_path = r"Age_and_Gender_PPT.png"
 
     # Bild laden und anzeigen
     if os.path.exists(image_path):
