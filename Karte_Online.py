@@ -288,7 +288,7 @@ with st.expander(label="Applications of Ridepooling Data"):
     ############################################################################
     # Hochfrequentierte Wegerelationen
 
-    st.title("High Demand Route Relations")
+    st.header("High Demand Route Relations")
     # Shapefile laden
     Wegerelationen_path = os.path.join(base_dir, "Wegerelationen.shp")
     Wegerelationen_gdf = load_shapefile(Wegerelationen_path)
@@ -379,7 +379,7 @@ with st.expander(label="Applications of Ridepooling Data"):
     ##########################################################
     #Route Rerouting
 
-    st.title("Route Rerouting – Routenumlegung KW43")
+    st.header("Route Rerouting – CW 43")
 
     # Shapefile laden
     routenumlegung_path = os.path.join(base_dir, "Routenumlegung_KW43_2.shp")
