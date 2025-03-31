@@ -147,7 +147,7 @@ with st.expander(label="Applications of Ridepooling Data"):
 
     st.header("Temporal Distribution of Requests and Bookings")
     # Bildpfad
-    image_path = r"C:\\Users\\Peter\\Desktop\Datenanalyse ISCTSC\\heatmap_diagrams_ppt.png"
+    image_path = r"heatmap_diagrams_ppt.png"
 
     # Bild laden und anzeigen
     if os.path.exists(image_path):
@@ -481,7 +481,7 @@ with st.expander(label="Possible Data Biases"):
     st.header("Age Disparities: Ridepooling Users vs. Inhabitants")
 
     # Bildpfad
-    image_path = r"C:\\Users\\Peter\\Desktop\Datenanalyse ISCTSC\\Age and Gender.png"
+    image_path = r"Age and Gender.png"
 
     # Bild laden und anzeigen
     if os.path.exists(image_path):
@@ -494,7 +494,7 @@ with st.expander(label="Possible Data Biases"):
     st.header("Usage Disparities: Heavy Users vs Irregular Users")
 
     # Bildpfad
-    image_path = r"C:\\Users\\Peter\\Desktop\Datenanalyse ISCTSC\\Nutzungsverteilung_Poster.png"
+    image_path = r"Nutzungsverteilung_Poster.png"
 
     # Bild laden und anzeigen
     if os.path.exists(image_path):
