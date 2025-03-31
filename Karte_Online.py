@@ -546,7 +546,7 @@ with st.expander(label="Possible Data Biases"):
     for _, row in verfuegbarkeiten_gdf.iterrows():
         if np.isnan(row["Verfügbar"]):  # Falls Wert NaN ist
             fill_opacity = 0.0  # Komplett durchsichtig
-            tooltip_text = "Keine Anfragen verzeichnet"
+            tooltip_text = "no inquiries"
         else:
             fill_opacity = opacity_values[row["Verfügbarkeitsklasse"]]
             tooltip_text = f"Verfügbarkeit: {row['Verfügbar']:.1f}%"
