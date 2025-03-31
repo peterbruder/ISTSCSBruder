@@ -152,7 +152,7 @@ with st.expander(label="Applications of Ridepooling Data"):
     # Bild laden und anzeigen
     if os.path.exists(image_path):
         image = Image.open(image_path)
-        st.image(image,  use_column_width=True)
+        st.image(image,  use_container_width=True)
     else:
         st.error(f"Bild nicht gefunden: {image_path}")
 
@@ -481,12 +481,12 @@ with st.expander(label="Possible Data Biases"):
     st.header("Age Disparities: Ridepooling Users vs. Inhabitants")
 
     # Bildpfad
-    image_path = r"Age_and_Gender_PPT.png"
+    image_path = r"Age_and_Gender.png"
 
     # Bild laden und anzeigen
     if os.path.exists(image_path):
         image = Image.open(image_path)
-        st.image(image, use_column_width=True)
+        st.image(image, use_container_width=True)
     else:
         st.error(f"Bild nicht gefunden: {image_path}")
 
@@ -499,7 +499,7 @@ with st.expander(label="Possible Data Biases"):
     # Bild laden und anzeigen
     if os.path.exists(image_path):
         image = Image.open(image_path)
-        st.image(image,  use_column_width=True)
+        st.image(image,  use_container_width=True)
     else:
         st.error(f"Bild nicht gefunden: {image_path}")
 
