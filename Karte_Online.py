@@ -478,7 +478,7 @@ with st.expander(label="Possible Data Biases"):
 
 
     #Age and Gender
-    st.header("Age Disparities: Ridepooling Users vs. Inhabitants")
+    st.header("Age Disparities:\nRidepooling Users vs. Inhabitants")
 
     # Bildpfad
     image_path = r"Age_and_Gender.png"
@@ -491,7 +491,7 @@ with st.expander(label="Possible Data Biases"):
         st.error(f"Bild nicht gefunden: {image_path}")
 
     #Heavy Users
-    st.header("Usage Disparities: Heavy Users vs Irregular Users")
+    st.header("Usage Disparities:\nHeavy Users vs Irregular Users")
 
     # Bildpfad
     image_path = r"Nutzungsverteilung_Poster.png"
@@ -507,7 +507,7 @@ with st.expander(label="Possible Data Biases"):
     ###################
     # Verfügbarkeitsanalyse
 
-    st.header("Spatial Availability: Efficiency vs. Basic Public Mobility")
+    st.header("Spatial Availability:\nEfficiency vs. Basic Public Mobility")
     Verfügbarkeiten_path = os.path.join(base_dir, "Verfügbarkeitsanalyse.shp")
 
     verfuegbarkeiten_gdf = gpd.read_file(Verfügbarkeiten_path)
